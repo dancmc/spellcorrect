@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spellcorrect.iml" filepath="$PROJECT_DIR$/.idea/modules/spellcorrect.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spellcorrect_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spellcorrect_main.iml" group="spellcorrect" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spellcorrect_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spellcorrect_test.iml" group="spellcorrect" />
     </modules>
   </component>
 </project>

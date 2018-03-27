@@ -16,8 +16,8 @@ class Analysis {
         val msFormat = DecimalFormat("#0")
         val twoDecimalFormat = DecimalFormat("#0.##")
 
-        lateinit var first : List<Collection<String>>
-        lateinit var second : List<Collection<String>>
+        lateinit var first: List<Collection<String>>
+        lateinit var second: List<Collection<String>>
 
         @JvmStatic
         fun main(args: Array<String>) {
@@ -115,16 +115,21 @@ class Analysis {
 
 //            println(JaroWinkler.analyseBatch(misspellData, correctData,  dictDataList, dictDataSet))
 //                println(JaroWinklerDistance().apply("uiqn dd", "umbrwella"))
-            var counter = 0
-            misspellData.forEachIndexed {index, s->
-                if(!dictDataSet.contains(s) && !dictDataSet.contains(correctData[index])){
-                    counter ++
-                }
-            }
-            println(counter)
+//            var counter = 0
+//            misspellData.forEachIndexed {index, s->
+//                if(!dictDataSet.contains(s) && !dictDataSet.contains(correctData[index])){
+//                    counter ++
+//                }
+//            }
+//            println(counter)
+//
+//            val tester = Tester("BP,BP,BP,BR")
+//            val result = tester.judgeString("WR,WR,WR")
+//            println("${result.correct}, ${result.correctKind}, ${result.correctColour}")
+
 
             FileWriter(File("/Users/daniel/Downloads/SpellCorrect Analysis.txt"), true).use { writer ->
-//                writer.appendln(NeedlemanWunsch.analyseBatch(misspellData, correctData, dictDataList, dictDataSet))
+                //                writer.appendln(NeedlemanWunsch.analyseBatch(misspellData, correctData, dictDataList, dictDataSet))
 //                writer.appendln(Levenshtein.analyseBatch(misspellData, correctData, dictDataList, dictDataSet))
 //                writer.appendln(DamerauLevenshtein.analyseBatch(misspellData, correctData, dictDataList, dictDataSet))
 //                writer.appendln(SmithWaterman.analyseBatch(misspellData, correctData, dictDataList, dictDataSet))

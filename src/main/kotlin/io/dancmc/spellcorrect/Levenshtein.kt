@@ -1,6 +1,5 @@
 package io.dancmc.spellcorrect
 
-import org.apache.commons.lang3.StringUtils
 import java.util.concurrent.atomic.AtomicLong
 
 class Levenshtein {
