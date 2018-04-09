@@ -62,8 +62,6 @@ class SmithWaterman {
                 return@parallelise subSuggestionsList
             }
 
-            println(counter.get())
-
             return analyseFindings("Smith-Waterman", misspellList, correctList, overallSuggestionsList, atomicTime)
 
         }
