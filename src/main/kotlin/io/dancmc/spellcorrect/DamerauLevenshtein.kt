@@ -2,9 +2,14 @@ package io.dancmc.spellcorrect
 
 import java.util.concurrent.atomic.AtomicLong
 
+/**
+ * Damerau-Levenshtein algorithm, based on
+ * Wagner, Robert A., and Roy Lowrance (1975)
+ * An extension of the string-to-string correction problem. Journal of the ACM (JACM), 22(2), 177-183.
+ */
 class DamerauLevenshtein {
 
-    val table = Array(100) { IntArray(100) { 0 } }
+    var table = Array(100) { IntArray(100) { 0 } }
     val da = Array(128) { 0 }
 
     companion object {
@@ -65,6 +70,12 @@ class DamerauLevenshtein {
 
         val lf = string1.length
         val lt = string2.length
+
+        val max = Math.max(lf, lt)
+        if(max>table.size){
+            table = Array(max+2) { IntArray(max+2) { 0 } }
+        }
+
         val maxDist = lf + lt
 
         table[0][0] = maxDist

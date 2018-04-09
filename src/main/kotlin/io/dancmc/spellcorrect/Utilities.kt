@@ -27,13 +27,9 @@ fun analyseFindings(methodName:String, misspellList: List<String>, correctList: 
     }
 
 
-
-
     Arrays.sort(suggestionCountArray)
     val totalSuggestions = suggestionCountArray.sum()
 
-    //TODO
-//    if(methodName.startsWith("Ne")) Analysis.first = overallSuggestionsList else Analysis.second = overallSuggestionsList
 
     return "$methodName\n" +
             "Average Time per Word : ${(atomicTime.get() / misspellListSize).roundToInt()}ms\n" +
@@ -46,6 +42,11 @@ fun analyseFindings(methodName:String, misspellList: List<String>, correctList: 
             "Aggregate Precision : $recallAbsolute/$totalSuggestions (${Analysis.percentFormat.format(recallAbsolute / totalSuggestions)})\n" +
             "Average Individual Precision : ${Analysis.percentFormat.format(totalIndividualPrecision / recallAbsolute)}\n"
 }
+
+/**
+ * Utility method to process data in parallel and then recombine
+ * Blocks till all threads complete
+ */
 
 fun parallelise(batchSize:Int, overallSuggestionsList:ArrayList<ArrayList<String>>,function:(Int)->ArrayList<ArrayList<String>>){
     runBlocking {

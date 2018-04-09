@@ -1,15 +1,19 @@
 package io.dancmc.spellcorrect
 
-import org.apache.commons.lang3.StringUtils
 import java.util.concurrent.atomic.AtomicLong
 
-class NeedlemanWunsch {
-    val table = Array(100) { IntArray(100) { 0 } }
 
+/**
+ * Needleman-Wunsch algorithm, based on KT lectures
+ */
+class NeedlemanWunsch {
+
+    // initialise table which will be reused to save memory
+    var table = Array(100) { IntArray(100) { 0 } }
 
     companion object {
 
-        val indelPenalty = -1
+        const val indelPenalty = -1
 
         fun equal(char1: Char, char2: Char): Int {
             return if (char1 == char2) 1 else -1
@@ -69,6 +73,11 @@ class NeedlemanWunsch {
         val lf = string1.length
         val lt = string2.length
 
+        val max = Math.max(lf, lt)
+        if(max>table.size){
+            table = Array(max+1) { IntArray(max+1) { 0 } }
+        }
+
 
         for (i in 0 until lf + 1) {
             table[0][i] = -i
@@ -89,7 +98,6 @@ class NeedlemanWunsch {
             }
 
         }
-
 
 //        table.take(15).forEach {
 //            println(it.joinToString { int-> StringUtils.leftPad(int.toString(), 2) })

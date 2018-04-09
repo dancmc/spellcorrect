@@ -1,8 +1,12 @@
 package io.dancmc.spellcorrect
 
-import java.util.*
+import java.util.Arrays
 import java.util.concurrent.atomic.AtomicLong
 
+
+/**
+ * NGram algorithm, based on KT lectures
+ */
 class NGram(val ngramLength : Int) {
 
     val string1NgramHashArray = LongArray(100){0}

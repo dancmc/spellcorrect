@@ -2,9 +2,12 @@ package io.dancmc.spellcorrect
 
 import java.util.concurrent.atomic.AtomicLong
 
+/**
+ * Levenshtein distance algorithm, based on KT lectures
+ */
 class Levenshtein {
 
-    val table = Array(100) { IntArray(100) { 0 } }
+    var table = Array(100) { IntArray(100) { 0 } }
 
     companion object {
 
@@ -68,6 +71,10 @@ class Levenshtein {
         val lf = string1.length
         val lt = string2.length
 
+        val max = Math.max(lf, lt)
+        if(max>table.size){
+            table = Array(max+1) { IntArray(max+1) { 0 } }
+        }
 
         for (i in 0 until lf + 1) {
             table[0][i] = i

@@ -1,8 +1,11 @@
 package io.dancmc.spellcorrect
 import java.util.concurrent.atomic.AtomicLong
 
-// Algorithm adapted from Peter Norvig (2007-2016) http://norvig.com/spell-correct.html
 
+/**
+ * Neighbourhood search algorithm, based on KT lectures
+ * Adapted from Peter Norvig (2007-2016) http://norvig.com/spell-correct.html
+ */
 class Neighbourhood {
 
     companion object {

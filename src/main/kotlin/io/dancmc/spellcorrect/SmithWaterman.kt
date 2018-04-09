@@ -3,9 +3,12 @@ package io.dancmc.spellcorrect
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicLong
 
+/**
+ * Smith-Waterman algorithm, based on KT lectures
+ */
 class SmithWaterman {
 
-    val table = Array(100) { IntArray(100) { 0 } }
+    var table = Array(100) { IntArray(100) { 0 } }
 
     companion object {
 
@@ -71,6 +74,11 @@ class SmithWaterman {
 
         val lf = string1.length
         val lt = string2.length
+
+        val max = Math.max(lf, lt)
+        if(max>table.size){
+            table = Array(max+1) { IntArray(max+1) { 0 } }
+        }
 
         var largest = 0
 
